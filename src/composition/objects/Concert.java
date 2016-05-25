@@ -62,7 +62,7 @@ public class Concert {
     }
 
     /**
-     * This method getting throww all singers and songs from concert,
+     * 
      * counting number of songs per singer and return singer who have highest number of song on concert ad total number of songs on concert.
      *
      * @param concert {link@ Concert}
@@ -71,9 +71,11 @@ public class Concert {
     public int getMaxNumberOfSongs(Concert concert) {
         int count = 0;
         int bound=0;
+        String name = "";
 
         for (int i = 0; i < singers.length; i++) { // take all singers on concert and pass throw all
             count = 0;
+
             for (int j = 0; j < songs.length; j++) { // all songs on concert and pass throw all
                 if (songs[j].getSinger().equals(singers[i])) { // getting song form concert an songs singer and check if he is equal and exist in singers in concert
                     count++;                                // if it is equal count them. On tjat way we getting all songs from singer on i
@@ -82,11 +84,12 @@ public class Concert {
             if(count > bound ){  // to get singer who have highest number of songs on concert we must make min bound and it is 0.
                 bound = count; //So if number of counted songs of each singer is greater than 0 than that bound will be number of counted songs per singer
                 // on that way we getting singer with highest number of played songs on concert.
-                System.out.println(singers[i].name + count);
+                name = singers[i].name;
             }
 
         }
-        System.out.println("Total number of songs is: ");
-        return songs.length;  //  total number of songs is all songs on concert
+
+        System.out.println(name);
+        return bound;
     }
 }
